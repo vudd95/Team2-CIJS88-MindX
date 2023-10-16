@@ -10,6 +10,7 @@ import Cart from './pages/Cart/Cart'
 import ListProducts from './pages/ListProducts/ListProducts'
 import ProductDetails from './pages/ProductDetails/ProductDetails'
 
+
 const App = () => {
   return (
     <Routes>
