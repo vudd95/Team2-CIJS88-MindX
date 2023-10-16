@@ -15,7 +15,24 @@ const Header = () => {
                 <button className='header-searchButton__top'>Search</button>
             </div>
             
-            <div className='header-icon__top'>Icon</div>
+            <div className='header-icon__top'>
+              <div className='header-iconProfile__top'>
+                <img src='/images/iconProfile.png'></img>
+                <p>Profile</p>
+              </div>
+              <div className='header-iconMessage__top'>
+                <img src='/images/iconMessage.png'></img>
+                <p>Message</p>
+              </div>
+              <div className='header-iconOrders__top'>
+                <img src='/images/iconOrder.png'></img>
+                <p>Order</p>
+              </div>
+              <div className='header-iconCart__top'>
+                <img src='/images/iconCart.png'></img>
+                <p>My cart</p>
+              </div>
+            </div>
 
         </div>
         <div className='header__bottom'>Header bottom</div>

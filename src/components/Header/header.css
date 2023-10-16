@@ -87,6 +87,82 @@ body {
     color: white;
 }
 
+.header-icon__top {
+    display: flex;
+    margin-left: 8.9rem;
+}
+
+.header-iconProfile__top {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-iconProfile__top img {
+    width: 2rem;
+    height: 2rem;
+}
+
+.header-iconProfile__top p {
+    font-size: 1.2rem;
+    margin-top: 0.7rem;
+}
+
+.header-iconMessage__top {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 2.3rem;
+}
+
+.header-iconMessage__top img {
+    width: 2rem;
+    height: 2rem;
+}
+
+.header-iconMessage__top p {
+    font-size: 1.2rem;
+    margin-top: 0.7rem;
+}
+
+.header-iconOrders__top {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 1.5rem;
+}
+
+.header-iconOrders__top img {
+    width: 2rem;
+    height: 2rem;
+}
+
+.header-iconOrders__top p {
+    font-size: 1.2rem;
+    margin-top: 0.7rem;
+}
+
+.header-iconCart__top {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 1.8rem;
+}
+
+.header-iconCart__top img {
+    width: 2rem;
+    height: 2rem;
+}
+
+.header-iconCart__top p {
+    font-size: 1.2rem;
+    margin-top: 0.7rem;
+}
+
 .header__bottom {
     max-width: 144rem;
     height: 5.6rem;
