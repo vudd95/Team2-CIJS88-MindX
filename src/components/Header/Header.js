@@ -35,7 +35,27 @@ const Header = () => {
             </div>
 
         </div>
-        <div className='header__bottom'>Header bottom</div>
+        <div className='header__bottom'>
+          <div className='header-categoryList__bottom'>
+            <img src='/images/iconMenu.png'></img>
+            <p className='category1'>All category</p>
+            <p className='category2'>Hot offers</p>
+            <p className='category3'>Gift boxes</p>
+            <p className='category4'>Projects</p>
+            <p className='category5'>Menu item</p>
+            <p className='category6'>Help</p>
+            <img src='/images/expand_more.png'></img>
+          </div>
+          <div className='header-moneyUnit__bottom'>
+            <p>ENGLISH, USD</p>
+            <img src='/images/expand_more.png'></img>
+          </div>
+          <div className='header-countryShip__bottom'>
+            <p>Ship to</p>
+            <img src='/images/iconFlags.png' className='iconFlags'></img>
+            <img src='/images/expand_more.png'></img>
+          </div>
+        </div>
     </div>
   )
 }
