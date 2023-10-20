@@ -2,7 +2,7 @@ import React from 'react';
 
 const Content3 = () => {
   return (
-    <div>
+    <div className='content3'>
       <img src="Block-recommend.png"></img>
     </div>
   );
