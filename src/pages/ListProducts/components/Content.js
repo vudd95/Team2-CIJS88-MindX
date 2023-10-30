@@ -6,15 +6,17 @@ export default function Content({
   selectedCategories,
   products,
   toggleCategory,
-  setCategories
+  addToCart
 }) {
   return (
     <div>
       <ContentLeft
+
         categories={categories}
         selectedCategories={selectedCategories}
         products={products}
         toggleCategory={toggleCategory}
+        addToCart={addToCart}
       />
     </div>
   );

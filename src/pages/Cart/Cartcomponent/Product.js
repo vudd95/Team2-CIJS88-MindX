@@ -2,7 +2,7 @@ import React from "react";
 
 function Product({product}) {
   return (
-    <div className="product">
+    <div className="product-item">
       <img 
         style={{ width: "270px", height: "240px", borderRadius: "6px",boxShadow:"rgba(149, 157, 165, 0.2) 0px 8px 24px" }}
         src={product.image}
