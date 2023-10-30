@@ -37,7 +37,7 @@
   background-color: #ffffff;
   flex: 1;
   text-align: center;
-  margin-right: 10px;
+  /* margin-right: 10px; */
 }
 .content1 .content1_center_1 {
   background-color: #fff0df;
@@ -181,6 +181,7 @@
   gap: 10px;
   /* text-align: left; */
   border-bottom: 1px solid #dee2e7;
+  text-align: start;
 }
 .content1 .content1_right .content1_right_top_1 img {
   height: 48px;
