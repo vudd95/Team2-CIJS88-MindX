@@ -4,52 +4,81 @@ import Tittle from "./components/Tittle";
 import "./App.css";
 import Content from "./components/Content";
 import axios from "axios";
-const ListProducts = () => {
+import { ClipLoader } from "react-spinners";
+import Footer from '../../components/Footer/Footer'
+
+const ListProducts = ({addToCart}) => {
+  //lưu trữ danh mục sp từ api
   const [categories, setCategories] = useState([]);
+  //Lưu trữ danh mục dc chọn từ user
   const [selectedCategories, setSelectedCategories] = useState([]);
+  // lưu trữ sp sau khi đã lọc
   const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+
   useEffect(() => {
-    if (selectedCategories.length > 0) {
-      // Gọi API để lấy danh sách sản phẩm theo danh mục đã chọn
-      // const selectedCategoriesParam = selectedCategories.join(',');
-      axios.get(`https://fakestoreapi.com/products/category/${selectedCategories}`)
-        .then(response => {
-          setProducts(response.data);
-        })
-        .catch(error => {
+    const fetchData = async () => {
+      setLoading(true); 
+      //hàm gọi api danh mục sản phẩm
+      const fetchCategoryData = async () => {
+        try {
+          const response = await axios.get("https://fakestoreapi.com/products/categories");
+          setCategories(response.data);
+        } catch (error) {
           console.error(error);
-        });
-    } else {
-      // Gọi API để lấy tất cả sản phẩm khi selectedCategories rỗng
-      axios.get('https://fakestoreapi.com/products')
-        .then(response => {
-          setProducts(response.data);
-        })
-        .catch(error => {
+          setLoading(false);
+          
+        }
+      };
+      // hàm gọi api để lấy sản phẩm theo danh mục
+      const fetchProductsByCategory = async (category) => {
+        try {
+          const response = await axios.get(`https://fakestoreapi.com/products/category/${category}`);
+          return response.data;
+        } catch (error)
+         {
           console.error(error);
-        });
-    }
-    // gọi api để lấy dữ liệu danh sách danh mục
-    axios
-      .get(`https://fakestoreapi.com/products/categories`)
-      .then(res => {
-        setCategories(res.data);
-      })
-      .catch(error => {
-        console.error(error);
-      });
-  }
-  , [selectedCategories]);
-  console.log(selectedCategories)
+          return [];
+          
+        }
+      };
+
+      fetchCategoryData();
+
+      if (selectedCategories.length > 0) {
+        const filteredProducts = [];
+        for (const category of selectedCategories) {
+          const productsByCategory = await fetchProductsByCategory(category);
+          filteredProducts.push(...productsByCategory);
+        }
+        setProducts(filteredProducts);
+        setLoading(false);
+      } else {
+        try {
+          const response = await axios.get("https://fakestoreapi.com/products");
+          setProducts(response.data);
+        } catch (error) {
+          console.error(error);
+        }
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+    
+  }, [selectedCategories]);
+
   const toggleCategory = (category) => {
     if (selectedCategories.includes(category)) {
-      setSelectedCategories(selectedCategories.filter(item => item !== category));
-    } 
-    else {
+      setSelectedCategories(selectedCategories.filter((item) => item !== category));
+    } else {
       setSelectedCategories([...selectedCategories, category]);
     }
   };
+
   return (
+
     <div>
       <Header />
       <Tittle />
@@ -58,7 +87,22 @@ const ListProducts = () => {
         selectedCategories={selectedCategories}
         products={products}
         toggleCategory={toggleCategory}
+        addToCart={addToCart}
       />
+    <div className="loading">
+    {loading && (
+        <>
+         <ClipLoader
+            color={'blue'}
+            loading={loading}
+            // cssOverride={'override'}
+            size={200}
+            aria-label="Loading Spinner"
+            data-testid="loader" />
+        </>
+      )}
+    </div>
+      <Footer />
     </div>
   );
 };

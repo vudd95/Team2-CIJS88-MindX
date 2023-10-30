@@ -1,7 +1,8 @@
 import React from 'react'
 import '../Header/header.css'
+import { Link } from 'react-router-dom'
 
-const Header = () => {
+const Header = ({cart}) => {
   return (
     <div className='header'>
         <div className='header__top'>
@@ -28,10 +29,11 @@ const Header = () => {
                 <img src='/images/iconOrder.png'></img>
                 <p>Order</p>
               </div>
-              <div className='header-iconCart__top'>
+              <Link to='/cart'><div className='header-iconCart__top'>
                 <img src='/images/iconCart.png'></img>
                 <p>My cart</p>
-              </div>
+                {/* <p>{cart.length}</p> */}
+              </div></Link>
             </div>
 
         </div>

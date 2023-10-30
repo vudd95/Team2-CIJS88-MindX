@@ -12,6 +12,7 @@ function ContentLeft({
   selectedCategories,
   products,
   toggleCategory,
+  addToCart
 }) 
 
 {
@@ -31,7 +32,7 @@ function ContentLeft({
       </div>
       <div className="product-grid">
         {products.map((product) => (
-          <Product product={product} />
+          <Product product={product} key={product.id} addToCart={addToCart} />
         ))}
       </div>
     </div>
