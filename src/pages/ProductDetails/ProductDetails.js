@@ -8,10 +8,10 @@ import Content3 from './components/Content3';
 import Content4 from './components/Content4';
 import Footer from './components/Footer';
 // import Header from '../components/';
-const ProductDetails = () => {
+const ProductDetails = ({cart}) => {
   return (
     <div>
-      <Header />
+      <Header cart={cart} />
       <Header2 />
       <div className="main">
         <Content1 />

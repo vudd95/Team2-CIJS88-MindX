@@ -1,6 +1,7 @@
 import React from 'react'
 
 function Checkout({totalPrice, coupon, setCoupon}) {
+  const roundedTotalPrice = totalPrice.toFixed(2);
   return (
     <div>
         <div className='coupon'>
@@ -31,7 +32,7 @@ function Checkout({totalPrice, coupon, setCoupon}) {
            </div>
            <div className='total'>
             <p>Total:</p>
-            <p>${totalPrice} </p>
+            <p>${roundedTotalPrice} </p>
            </div>
            <button className='btn-checkout'>Check out</button>
            <div className='img-payment'>

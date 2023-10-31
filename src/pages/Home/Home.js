@@ -9,7 +9,7 @@ const Home = ({cart}) => {
     <>
       <div className="home">
         <div className="header-home">
-          <Header></Header>
+          <Header cart={cart}></Header>
         </div>
         <div className="category-and-banner">
           <div className="category-and-banner__left">

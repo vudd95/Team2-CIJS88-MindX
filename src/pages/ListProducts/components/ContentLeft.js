@@ -1,12 +1,6 @@
 import React, { useState } from "react";
-import Checkbox from "./Checkbox";
+import Checkbo from "./Checkbox";
 import Product from "./Product";
-const categorys =[
-  "Electronics",
-  "Jewelery",
-  "Men's clothing",
-  "Women's clothing"
-]
 function ContentLeft({
   categories,
   selectedCategories,
@@ -19,10 +13,10 @@ function ContentLeft({
   return (
     <div className="content">
       <div className="Content-left">
-        <h1>Category:</h1>
+        <h1 style={{fontSize:"30px",fontWeight:"600"}}>Category:</h1>
         
         {categories.map((category) => (
-          <Checkbox
+          <Checkbo
             key={category}
             category={category}
             selectedCategories={selectedCategories}
