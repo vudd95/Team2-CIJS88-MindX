@@ -10,6 +10,21 @@ import Cart from "./pages/Cart/Cart";
 import ListProducts from "./pages/ListProducts/ListProducts";
 import ProductDetails from "./pages/ProductDetails/ProductDetails";
 
+export const rootData = [
+  {
+    email: "test@gmail.com",
+    password: "12345678",
+  },
+  {
+    email: "vu.dd95@gmail.com",
+    password: "12345678"
+  },
+  {
+    email: "admin@gmail.com",
+    password: "1234"
+  }
+]
+
 const App = () => {
   const [cart, setCart] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
@@ -25,6 +40,18 @@ const App = () => {
     
   };
   console.log(cart);
+
+  // const adminUser = {
+  //   email: 'admin@admin.com',
+  //   password: '12345678'
+  // }
+
+  // const [user, setUser] = useState({name: "", email: ""})
+  // const [error, setError] = useState("")
+
+  // const Login = details =>{
+  //   console.log(details)
+  // }
 
 
 

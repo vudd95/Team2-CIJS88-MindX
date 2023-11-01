@@ -6,7 +6,8 @@ const Header = ({cart}) => {
   return (
     <div className='header'>
         <div className='header__top'>
-            <div className='header-logo__top'></div>
+          <Link to={'/'}><div className='header-logo__top'></div></Link>
+            
             <div className='header-search__top'>
                 <input className='header-searchInput__top' placeholder='Search'></input>
                 <div className='header-allCategory__top'>
