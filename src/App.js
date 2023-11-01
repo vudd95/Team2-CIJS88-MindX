@@ -13,6 +13,21 @@ import NotFound from "./components/NotFound";
 import { Payment } from "./pages/Payment/Payment";
 
 
+export const rootData = [
+  {
+    email: "test@gmail.com",
+    password: "12345678",
+  },
+  {
+    email: "vu.dd95@gmail.com",
+    password: "12345678"
+  },
+  {
+    email: "admin@gmail.com",
+    password: "1234"
+  }
+]
+
 const App = () => {
   const [cart, setCart] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
@@ -35,13 +50,7 @@ const App = () => {
     // updateTotalPrice();
   };
 
-  const updateTotalPrice = () => {
-    const newTotalPrice = cart.reduce(
-      (total, product) => total + product.price * product.total,
-      0
-    );
-    setTotalPrice(newTotalPrice);
-  };
+
 
   const clearCart = () => {
     setCart([]);

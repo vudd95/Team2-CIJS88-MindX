@@ -1,10 +1,52 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Home.css";
 import Header from "../../components/Header/Header";
 import Subscribe from "../../components/Subscribe/Subscribe";
 import Footer from "../../components/Footer/Footer";
 
-const Home = ({cart}) => {
+const Home = ({ cart }) => {
+  //load thong tin dang nhap tu local storage
+  const datafromLocal = JSON.parse(localStorage.getItem("userInfo"));
+
+  //load thong tin categroy
+
+  const [categories, setCategories] = useState([]);
+  const [products, setProducts] = useState([]);
+
+  const fetchCategories = () => {
+    fetch("https://fakestoreapi.com/products/categories")
+      .then((response) => {
+        return response.json();
+      })
+      .then((category) => {
+        setCategories(category);
+      });
+  };
+
+  //load thong tin san pham
+  const fetchProducts = () => {
+    fetch("https://fakestoreapi.com/products")
+      .then((response) => {
+        return response.json();
+      })
+      .then((product) => {
+        setProducts(product);
+      });
+  };
+
+  useEffect(() => {
+    fetchCategories();
+  }, []);
+
+  useEffect(() => {
+    fetchProducts();
+  }, []);
+
+  const recommendProducts1 = products.filter((item) => item.rating.rate > 4.5);
+  console.log("recommendProduct", recommendProducts1);
+  const recommendProducts2 = products.filter(item => item.rating.rate >2.8 && item.rating.rate < 3.6) 
+
+  console.log("Recommend 2: ", recommendProducts2)
   return (
     <>
       <div className="home">
@@ -13,7 +55,21 @@ const Home = ({cart}) => {
         </div>
         <div className="category-and-banner">
           <div className="category-and-banner__left">
-            <ul>
+            {categories.length > 0 && (
+              <ul>
+                {categories.map((category) => (
+                  <li key={category.id}>{category}</li>
+                ))}
+              </ul>
+            )}
+            {categories.length > 0 && (
+              <ul>
+                {categories.map((category) => (
+                  <li key={category.id}>{category}</li>
+                ))}
+              </ul>
+            )}
+            {/* <ul>
               <li className="choose">Automobiles</li>
               <li>Clothes and wear</li>
               <li>Home interiors</li>
@@ -23,11 +79,13 @@ const Home = ({cart}) => {
               <li>Animal and pets</li>
               <li>Machinery tools</li>
               <li>More category</li>
-            </ul>
+            </ul> */}
           </div>
           <div className="category-and-banner__center"></div>
           <div className="category-and-banner__right">
-            <div className="category-and-banner__right-user">and</div>
+            <div className="category-and-banner__right-user">
+              {datafromLocal.email}
+            </div>
             <div className="category-and-banner__right-offer1"></div>
             <div className="category-and-banner__right-offer2"></div>
           </div>
@@ -225,80 +283,32 @@ const Home = ({cart}) => {
         </div>
         <div className="recommended-items">
           <h5>Recommended items</h5>
-          <div className="recommended-list-items">
-            <div className="recommended-list-item">
-              <img src="/images/cloth.png"></img>
-              <div className="recommended-list-item-price">
-                <span>$10.30</span>
-                <p>T-shirts with multiple colors, for men</p>
-              </div>
+          {recommendProducts2.length > 0 && (
+            <div className="recommended-list-items">
+              {recommendProducts2.map((recommendProduct2) => (
+                <div className="recommended-list-item">
+                  <img src={recommendProduct2.image}></img>
+                  <div className="recommended-list-item-price">
+                    <span>${recommendProduct2.price}</span>
+                    <p>{recommendProduct2.title}</p>
+                  </div>
+                </div>
+              ))}
             </div>
-            <div className="recommended-list-item">
-              <img src="/images/cloth.png"></img>
-              <div className="recommended-list-item-price">
-                <span>$10.30</span>
-                <p>T-shirts with multiple colors, for men</p>
-              </div>
+          )}
+          {recommendProducts1.length > 0 && (
+            <div className="recommended-list-items">
+              {recommendProducts1.map((recommendProduct1) => (
+                <div className="recommended-list-item">
+                  <img src={recommendProduct1.image}></img>
+                  <div className="recommended-list-item-price">
+                    <span>${recommendProduct1.price}</span>
+                    <p>{recommendProduct1.title}</p>
+                  </div>
+                </div>
+              ))}
             </div>
-            <div className="recommended-list-item">
-              <img src="/images/cloth.png"></img>
-              <div className="recommended-list-item-price">
-                <span>$10.30</span>
-                <p>T-shirts with multiple colors, for men</p>
-              </div>
-            </div>
-            <div className="recommended-list-item">
-              <img src="/images/cloth.png"></img>
-              <div className="recommended-list-item-price">
-                <span>$10.30</span>
-                <p>T-shirts with multiple colors, for men</p>
-              </div>
-            </div>
-            <div className="recommended-list-item">
-              <img src="/images/cloth.png"></img>
-              <div className="recommended-list-item-price">
-                <span>$10.30</span>
-                <p>T-shirts with multiple colors, for men</p>
-              </div>
-            </div>
-          </div>
-          <div className="recommended-list-items">
-            <div className="recommended-list-item">
-              <img src="/images/cloth.png"></img>
-              <div className="recommended-list-item-price">
-                <span>$10.30</span>
-                <p>T-shirts with multiple colors, for men</p>
-              </div>
-            </div>
-            <div className="recommended-list-item">
-              <img src="/images/cloth.png"></img>
-              <div className="recommended-list-item-price">
-                <span>$10.30</span>
-                <p>T-shirts with multiple colors, for men</p>
-              </div>
-            </div>
-            <div className="recommended-list-item">
-              <img src="/images/cloth.png"></img>
-              <div className="recommended-list-item-price">
-                <span>$10.30</span>
-                <p>T-shirts with multiple colors, for men</p>
-              </div>
-            </div>
-            <div className="recommended-list-item">
-              <img src="/images/cloth.png"></img>
-              <div className="recommended-list-item-price">
-                <span>$10.30</span>
-                <p>T-shirts with multiple colors, for men</p>
-              </div>
-            </div>
-            <div className="recommended-list-item">
-              <img src="/images/cloth.png"></img>
-              <div className="recommended-list-item-price">
-                <span>$10.30</span>
-                <p>T-shirts with multiple colors, for men</p>
-              </div>
-            </div>
-          </div>
+          )}
         </div>
         <div className="subscribe-home">
           <Subscribe></Subscribe>
