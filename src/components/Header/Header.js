@@ -33,8 +33,8 @@ const Header = ({cart}) => {
               <Link to='/cart'><div className='header-iconCart__top'>
                 <img src='/images/iconCart.png'></img>
                 <p>My cart</p>
-                {/* <p>{cart.length}</p> */}
               </div></Link>
+              {cart.length === 0 ? (<p></p>) : (<p>{cart.length}</p>)}
             </div>
 
         </div>

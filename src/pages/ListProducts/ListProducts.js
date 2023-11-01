@@ -6,8 +6,9 @@ import Content from "./components/Content";
 import axios from "axios";
 import { ClipLoader } from "react-spinners";
 import Footer from '../../components/Footer/Footer'
+import { Spinner } from "@chakra-ui/react";
 
-const ListProducts = ({addToCart}) => {
+const ListProducts = ({addToCart, cart}) => {
   //lưu trữ danh mục sp từ api
   const [categories, setCategories] = useState([]);
   //Lưu trữ danh mục dc chọn từ user
@@ -80,8 +81,7 @@ const ListProducts = ({addToCart}) => {
   return (
 
     <div>
-      <Header />
-      <Tittle />
+      <Header cart={cart} />
       <Content
         categories={categories}
         selectedCategories={selectedCategories}
@@ -92,13 +92,13 @@ const ListProducts = ({addToCart}) => {
     <div className="loading">
     {loading && (
         <>
-         <ClipLoader
-            color={'blue'}
-            loading={loading}
-            // cssOverride={'override'}
-            size={200}
-            aria-label="Loading Spinner"
-            data-testid="loader" />
+        <Spinner
+        thickness='4px'
+        speed='0.65s'
+        emptyColor='gray.200'
+        color='blue.500'
+        size='xl'
+        ></Spinner>
         </>
       )}
     </div>

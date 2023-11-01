@@ -1,20 +1,23 @@
 import React, { useState } from "react";
+import { Checkbox } from '@chakra-ui/react'
 
-const Checkbox = ({ category, selectedCategories, toggleCategory }) => {
+const Checkbo = ({ category, selectedCategories, toggleCategory }) => {
 
   const isChecked = selectedCategories.includes(category);
   return (
-    <label style={{textTransform:'capitalize', marginTop:"30px"}}>
-      <input
-        type="checkbox"
-        value={category}
+
+    <Checkbox 
         checked={isChecked}
         onChange={() => toggleCategory(category)}
         className="checkbox"
-      />
-      {category}
-    </label>
+        style={{textTransform:'capitalize', marginTop:"30px"}}
+        size="lg"
+    >
+      <p style={{fontSize:"20px"}}>{category}</p>
+
+
+    </Checkbox>
   );
 };
 
-export default Checkbox;
+export default Checkbo;

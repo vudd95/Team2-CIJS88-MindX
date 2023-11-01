@@ -1,0 +1,12 @@
+.not-found{
+    max-width: 500px;
+    margin: 0 auto;
+}
+.not-found img{
+    width: 800px;
+    height: 500px;
+}
+.link-home{
+    position: relative;
+    left: 215px;
+}
