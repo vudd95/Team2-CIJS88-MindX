@@ -1,6 +1,7 @@
 import React from 'react'
 
 function Quantitycontrol({ quantity, increaseQuantity, decreaseQuantity }) {
+  
   return (
     <div className='quantity'>
       <button className='btn-quantity' onClick={increaseQuantity}>+</button>

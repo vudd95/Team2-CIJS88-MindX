@@ -9,6 +9,9 @@ import Signup from "./pages/SignUp/Signup";
 import Cart from "./pages/Cart/Cart";
 import ListProducts from "./pages/ListProducts/ListProducts";
 import ProductDetails from "./pages/ProductDetails/ProductDetails";
+import NotFound from "./components/NotFound";
+import { Payment } from "./pages/Payment/Payment";
+
 
 const App = () => {
   const [cart, setCart] = useState([]);
@@ -84,6 +87,7 @@ const App = () => {
         element={<ListProducts addToCart={addToCart} cart={cart} />}
       ></Route>
       <Route path="/product-details" element={<ProductDetails cart={cart} />}></Route>
+      <Route path="*" element={<NotFound></NotFound>} />
     </Routes>
   );
 };

@@ -168,7 +168,7 @@
 }
 .checkout{
     width: 280px;
-    height: 290px;
+    /* height: 290px; */
     margin-top: 20px;
     /* margin-left: 10px; */
     padding-left: 15px;
@@ -240,6 +240,7 @@
 }
 .product-related{
     display: flex;
+    flex-direction: column;
     gap: 20px;
     width: 1160px;
     height: 400px;
