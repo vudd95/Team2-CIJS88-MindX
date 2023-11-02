@@ -36,7 +36,7 @@ const Header = ({cart}) => {
                 <img src='/images/iconCart.png'></img>
                 <p>My cart</p>
               </div></Link>
-              {/* {cart.length === 0 ? (<p></p>) : (<p>{cart.length}</p>)} */}
+              {cart.length === 0 ? (<p></p>) : (<p>{cart.length}</p>)}
             </div>
 
         </div>

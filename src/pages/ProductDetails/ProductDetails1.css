@@ -64,3 +64,12 @@
   color: gray;
   margin-top: 2rem;
 }
+
+.btn-move{
+  margin-top: 50px;
+  height: 48px !important;
+  width: 200px;
+  font-size: 20px !important;
+  display: flex;
+  gap: 5px;
+}

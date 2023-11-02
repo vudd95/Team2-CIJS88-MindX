@@ -91,7 +91,7 @@ const Home = ({ cart }) => {
           <div className="category-and-banner__center"></div>
           <div className="category-and-banner__right">
             <div className="category-and-banner__right-user">
-              {datafromLocal.email}
+              {/* {datafromLocal.email} */}
             </div>
             <div className="category-and-banner__right-offer1"></div>
             <div className="category-and-banner__right-offer2"></div>

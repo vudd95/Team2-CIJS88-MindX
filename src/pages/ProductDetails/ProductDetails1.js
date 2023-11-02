@@ -1,51 +1,71 @@
-import React, { useState, useEffect } from 'react'
-import Header from '../../components/Header/Header'
-import Footer from '../../components/Footer/Footer'
-import { useParams } from 'react-router-dom'
-import './ProductDetails1.css'
-import Subscribe from '../../components/Subscribe/Subscribe'
+import React, { useState, useEffect } from "react";
+import Header from "../../components/Header/Header";
+import Footer from "../../components/Footer/Footer";
+import { useParams } from "react-router-dom";
+import "./ProductDetails1.css";
+import Subscribe from "../../components/Subscribe/Subscribe";
+import { Button, Toast, useToast } from "@chakra-ui/react";
+import {BsMinecart} from 'react-icons/bs'
 
-function ProductDetails1() {
+function ProductDetails1({addToCart, cart}) {
+  const Toast = useToast()
+  const handleAddToCart = () => {
+    addToCart(product);
+    Toast({
+      title: "Success!",
+      description: " Product added to cart.",
+      status: "success",
+      duration: 3000,
+      isClosable: true,
+    });
+  };
+  const params = useParams();
+  //lay data tu API
 
-    const params = useParams()
-    //lay data tu API
-
-    const [products, setProducts] = useState([])
-    const fetchProducts = () => {
-        fetch("https://fakestoreapi.com/products")
-          .then((response) => {
-            return response.json();
-          })
-          .then((product) => {
-            setProducts(product[params.productId-1])
-          });
-      };
-        useEffect(() => {
-        fetchProducts();
+  const [product, setProduct] = useState([]);
+  const fetchProducts = () => {
+    fetch("https://fakestoreapi.com/products")
+      .then((response) => {
+        return response.json();
+      })
+      .then((product) => {
+        setProduct(product[params.productId - 1]);
       });
-    return (
+  };
+  useEffect(() => {
+    fetchProducts();
+  });
+  return (
     <>
-        <Header></Header>
-        
-        <div className='product__details'>
-            <div className='product__details-left'>
-                <img src={products.image}></img>
-            </div>
-            <div className='product__details-right'>
-                <h2>{products.title}</h2>
-                <p className='product__details-category'>Category: {products.category}</p>
-                <div className='product__details-price'>
-                <p >Price: ${products.price}</p>
-                </div>
-                
-                <p className='product__details-desc'>Description: {products.description}</p>
-                {/* <p>Count: {products.rating.count}</p> */}
-            </div>
+      <Header cart={cart}></Header>
+
+      <div className="product__details">
+        <div className="product__details-left">
+          <img src={product.image}></img>
         </div>
-        {/* <Subscribe></Subscribe> */}
-        <Footer></Footer>
+        <div className="product__details-right">
+          <h2>{product.title}</h2>
+          <p className="product__details-category">
+            Category: {product.category}
+          </p>
+          <div className="product__details-price">
+            <p>Price: ${product.price}</p>
+          </div>
+
+          <p className="product__details-desc">
+            Description: {product.description}
+          </p>
+          <Button className="btn-move" colorScheme='whatsapp' onClick={() => handleAddToCart(product)}>
+            
+          <BsMinecart />
+            Move to cart
+          </Button>
+        </div>
+      </div>
+      {/* <Subscribe></Subscribe> */}
+      <Footer></Footer>
     </>
-  )
+  );
 }
 
-export default ProductDetails1
+export default ProductDetails1;

@@ -8,8 +8,8 @@ function Product({product, addToCart}) {
   const handleAddToCart = (product) => {
     addToCart(product);
     Toast({
-      title: "Thành công!",
-      description: "Đơn hàng đã được thêm vào giỏ hàng.",
+      title: "Success!",
+      description: " Product added to cart.",
       status: "success",
       duration: 3000,
       isClosable: true,

@@ -44,7 +44,7 @@ function Cartcontent({
     // Hiển thị thông báo hoàn thành
     Swal.fire({
       icon: "success",
-      title: "Đơn hàng đã được hoàn thành!",
+      title: "Order has been completed!",
     });
   };
   return (

@@ -9,7 +9,6 @@ import Signup from "./pages/SignUp/Signup";
 import Cart from "./pages/Cart/Cart";
 import ListProducts from "./pages/ListProducts/ListProducts";
 import NotFound from "./components/NotFound";
-import { Payment } from "./pages/Payment/Payment";
 import ProductDetails1 from "./pages/ProductDetails/ProductDetails1";
 
 
@@ -48,7 +47,6 @@ const App = () => {
       setCart([...cart]);
     }
     setTotalPrice(totalPrice + product.price);
-    // updateTotalPrice();
   };
 
   const clearCart = () => {
@@ -85,7 +83,6 @@ const App = () => {
             setCoupon={setCoupon}
             clearCart={clearCart}
             removeProduct={removeProduct}
-            // updateTotalPrice={updateTotalPrice}
           />
         }
       ></Route>
@@ -95,9 +92,9 @@ const App = () => {
         element={<ListProducts addToCart={addToCart} cart={cart} />}
       >
       </Route>
-      <Route path="/products/:productId" element={<ProductDetails1/>}></Route>
+      <Route path="/products/:productId" element={<ProductDetails1 addToCart={addToCart} cart={cart} />}></Route>
 
-      {/* <Route path="*" element={<NotFound></NotFound>} /> */}
+      <Route path="*" element={<NotFound></NotFound>} />
     </Routes>
   );
 };

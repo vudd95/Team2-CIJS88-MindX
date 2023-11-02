@@ -29,8 +29,9 @@ const Cart = ({
         removeProduct={removeProduct}
         updateTotalPrice={updateTotalPrice}
       />
-      <Footer></Footer>
+      {/* <Footer></Footer> */}
     </div>
+
   );
 };
 
