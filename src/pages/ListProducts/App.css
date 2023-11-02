@@ -14,7 +14,7 @@
   align-items: center;
 }
 .Content-left {
-  margin-left: 300px;
+  /* margin-left: 300px; */
   margin-top: 20px;
   display: flex;
   flex-direction: column;
@@ -67,6 +67,9 @@
   display: flex;
   gap: 10px;
   margin-top: 30px;
+  width: 1180px;
+  margin-left: 0 ;
+  margin-right: 0;
 }
 .product-grid {
   display: grid;
@@ -84,6 +87,3 @@
   left: 50%;
 }
 
-.products__content {
-  margin: 0 auto;
-}

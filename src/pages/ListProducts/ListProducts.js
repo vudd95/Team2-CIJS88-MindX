@@ -104,6 +104,7 @@ const ListProducts = ({addToCart, cart}) => {
         </>
       )}
     </div>
+  
     <Footer></Footer>
 
     </>
