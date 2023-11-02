@@ -1,8 +1,10 @@
 import React from 'react'
 import '../Header/header.css'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 const Header = ({cart}) => {
+
+  const navigate = useNavigate()
   return (
     <div className='header'>
         <div className='header__top'>
@@ -42,7 +44,7 @@ const Header = ({cart}) => {
           <div className='header-categoryList__bottom'>
             <img src='/images/iconMenu.png'></img>
             <p className='category1'>All category</p>
-            <p className='category2'>Hot offers</p>
+            <p className='category2'><Link to={'/products'}>Products</Link></p>
             <p className='category3'>Gift boxes</p>
             <p className='category4'>Projects</p>
             <p className='category5'>Menu item</p>

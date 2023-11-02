@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Checkbo from "./Checkbox";
+import Checkbox from "./Checkbox";
 import Product from "./Product";
 function ContentLeft({
   categories,
@@ -16,7 +16,7 @@ function ContentLeft({
         <h1 style={{fontSize:"30px",fontWeight:"600"}}>Category:</h1>
         
         {categories.map((category) => (
-          <Checkbo
+          <Checkbox
             key={category}
             category={category}
             selectedCategories={selectedCategories}

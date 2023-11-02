@@ -14,7 +14,7 @@
   align-items: center;
 }
 .Content-left {
-  margin-left: 150px;
+  margin-left: 300px;
   margin-top: 20px;
   display: flex;
   flex-direction: column;
@@ -22,6 +22,8 @@
   border: 1px solid #dee2e7;
   background-color: white;
   height: 1014px;
+  padding-top: 20px;
+  padding-left: 20px;
 }
 .btn-category {
   width: 240px;
@@ -58,7 +60,8 @@
   width: 295px;
   /* padding-left: 15px;
     padding-top: 10px; */
-  padding: 15px 10px 0;
+  padding: 15px 20px 0;
+  border-radius: 5px;
 }
 .content {
   display: flex;
@@ -71,13 +74,16 @@
   grid-gap: 20px;
 }
 
-.checkbox{
+.checkbox {
   /* margin-left: 10px; */
   font-size: 30px !important;
 }
-.loading{
+.loading {
   position: absolute;
   top: 20%;
   left: 50%;
 }
 
+.products__content {
+  margin: 0 auto;
+}

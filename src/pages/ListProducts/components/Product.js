@@ -25,10 +25,10 @@ function Product({product, addToCart}) {
 
   return (
     <div className="product">
-      <button onClick={() => viewProduct(product.id)} ><img 
-        style={{ width: "270px", height: "240px", borderRadius: "6px",boxShadow:"rgba(149, 157, 165, 0.2) 0px 8px 24px;" }}
+      <div onClick={() => viewProduct(product.id)} style={{display:"flex", justifyContent:"center", alignItems:"center", marginBottom:"10px", cursor:"pointer"}} ><img 
+        style={{ width: "200px", height: "200px", borderRadius: "6px",boxShadow:"rgba(149, 157, 165, 0.2) 0px 8px 24px;" }}
         src={image}
-      /></button>
+      /></div>
       <p style={{ fontSize: "18px", fontWeight: "600" }}>Price: {price}</p>
       <p style={{ fontSize: "13px", fontWeight: "400", color: "#606060", height:"45px" }}>
         {title}

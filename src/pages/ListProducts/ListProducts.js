@@ -80,15 +80,17 @@ const ListProducts = ({addToCart, cart}) => {
 
   return (
 
-    <div>
-      <Header cart={cart} />
-      <Content
+    <>
+    <Header cart={cart} />
+    <div className="products__content">
+    <Content
         categories={categories}
         selectedCategories={selectedCategories}
         products={products}
         toggleCategory={toggleCategory}
         addToCart={addToCart}
       />
+    </div>
     <div className="loading">
     {loading && (
         <>
@@ -102,8 +104,9 @@ const ListProducts = ({addToCart, cart}) => {
         </>
       )}
     </div>
-      <Footer />
-    </div>
+    <Footer></Footer>
+
+    </>
   );
 };
 
