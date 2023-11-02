@@ -59,7 +59,7 @@ function Cartcontent({
             />
             <div>
               <p>Your Brand Cart is empty </p>
-              <Link to="/list-product">
+              <Link to="/products">
                 <Button colorScheme="teal" size="lg">
                   Back to Shop
                 </Button>

@@ -20,7 +20,7 @@ function Product({product, addToCart}) {
 
   const viewProduct = (productId) => {
     // Sử dụng navigate để điều hướng đến trang sản phẩm cụ thể
-    navigate(`/product/${productId}`);
+    navigate(`/products/${productId}`);
   };
 
   return (

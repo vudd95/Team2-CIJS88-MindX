@@ -3,6 +3,7 @@ import "./Home.css";
 import Header from "../../components/Header/Header";
 import Subscribe from "../../components/Subscribe/Subscribe";
 import Footer from "../../components/Footer/Footer";
+import { Link, useNavigate } from "react-router-dom";
 
 const Home = ({ cart }) => {
   //load thong tin dang nhap tu local storage
@@ -12,6 +13,8 @@ const Home = ({ cart }) => {
 
   const [categories, setCategories] = useState([]);
   const [products, setProducts] = useState([]);
+
+  const navigate = useNavigate()
 
   const fetchCategories = () => {
     fetch("https://fakestoreapi.com/products/categories")
@@ -41,6 +44,10 @@ const Home = ({ cart }) => {
   useEffect(() => {
     fetchProducts();
   }, []);
+
+  const handleViewProduct = (productID) =>{
+    navigate(`/products/${productID}`)
+  }
 
   const recommendProducts1 = products.filter((item) => item.rating.rate > 4.5);
   console.log("recommendProduct", recommendProducts1);
@@ -286,7 +293,7 @@ const Home = ({ cart }) => {
           {recommendProducts2.length > 0 && (
             <div className="recommended-list-items">
               {recommendProducts2.map((recommendProduct2) => (
-                <div className="recommended-list-item">
+                <div className="recommended-list-item" key={recommendProduct2.id} onClick={() => handleViewProduct(recommendProduct2.id)}>
                   <img src={recommendProduct2.image}></img>
                   <div className="recommended-list-item-price">
                     <span>${recommendProduct2.price}</span>
@@ -297,18 +304,23 @@ const Home = ({ cart }) => {
             </div>
           )}
           {recommendProducts1.length > 0 && (
+            
             <div className="recommended-list-items">
               {recommendProducts1.map((recommendProduct1) => (
-                <div className="recommended-list-item">
+                
+                <div className="recommended-list-item" key={recommendProduct1.id} onClick={() => handleViewProduct(recommendProduct1.id)}>
                   <img src={recommendProduct1.image}></img>
                   <div className="recommended-list-item-price">
                     <span>${recommendProduct1.price}</span>
                     <p>{recommendProduct1.title}</p>
                   </div>
                 </div>
+                
+                
               ))}
             </div>
-          )}
+            
+                      )}
         </div>
         <div className="subscribe-home">
           <Subscribe></Subscribe>

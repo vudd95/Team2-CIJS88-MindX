@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./cart.css";
 import Cartheader from "./Cartcomponent/Cartheader";
 import Cartcontent from "./Cartcomponent/Cartcontent";
-// import Footer from '../../components/Footer/Footer'
+import Footer from '../../components/Footer/Footer'
 // import { useCart } from '../../contexts/CartContext'
 
 const Cart = ({
@@ -29,6 +29,7 @@ const Cart = ({
         removeProduct={removeProduct}
         updateTotalPrice={updateTotalPrice}
       />
+      <Footer></Footer>
     </div>
   );
 };

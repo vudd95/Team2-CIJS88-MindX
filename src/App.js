@@ -8,9 +8,10 @@ import Login from "./pages/Login/Login";
 import Signup from "./pages/SignUp/Signup";
 import Cart from "./pages/Cart/Cart";
 import ListProducts from "./pages/ListProducts/ListProducts";
-import ProductDetails from "./pages/ProductDetails/ProductDetails";
 import NotFound from "./components/NotFound";
 import { Payment } from "./pages/Payment/Payment";
+import ProductDetails1 from "./pages/ProductDetails/ProductDetails1";
+
 
 
 export const rootData = [
@@ -20,13 +21,13 @@ export const rootData = [
   },
   {
     email: "vu.dd95@gmail.com",
-    password: "12345678"
+    password: "12345678",
   },
   {
     email: "admin@gmail.com",
-    password: "1234"
-  }
-]
+    password: "1234",
+  },
+];
 
 const App = () => {
   const [cart, setCart] = useState([]);
@@ -49,8 +50,6 @@ const App = () => {
     setTotalPrice(totalPrice + product.price);
     // updateTotalPrice();
   };
-
-
 
   const clearCart = () => {
     setCart([]);
@@ -86,17 +85,19 @@ const App = () => {
             setCoupon={setCoupon}
             clearCart={clearCart}
             removeProduct={removeProduct}
-            updateTotalPrice={updateTotalPrice}
-           
+            // updateTotalPrice={updateTotalPrice}
           />
         }
       ></Route>
       <Route
-        path="/list-product"
+        path="/products"
+        exact
         element={<ListProducts addToCart={addToCart} cart={cart} />}
-      ></Route>
-      <Route path="/product-details" element={<ProductDetails cart={cart} />}></Route>
-      <Route path="*" element={<NotFound></NotFound>} />
+      >
+      </Route>
+      <Route path="/products/:productId" element={<ProductDetails1/>}></Route>
+
+      {/* <Route path="*" element={<NotFound></NotFound>} /> */}
     </Routes>
   );
 };
