@@ -36,14 +36,14 @@ const Header = ({cart}) => {
                 <img src='/images/iconCart.png'></img>
                 <p>My cart</p>
               </div></Link>
-              {cart.length === 0 ? (<p></p>) : (<p>{cart.length}</p>)}
+              {/* {cart.length === 0 ? (<p></p>) : (<p>{cart.length}</p>)} */}
             </div>
 
         </div>
         <div className='header__bottom'>
           <div className='header-categoryList__bottom'>
             <img src='/images/iconMenu.png'></img>
-            <p className='category1'>All category</p>
+            <p className='category1'><Link to={'/category'}>Category</Link></p>
             <p className='category2'><Link to={'/products'}>Products</Link></p>
             <p className='category3'>Gift boxes</p>
             <p className='category4'>Projects</p>

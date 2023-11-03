@@ -22,7 +22,8 @@ const Signup = () => {
     <div className="login">
       <div className="login-content">
         <div className="div-content__logo">
-          <img src="/images/logo-colored.png"></img>
+          <Link to={'/'}><img src="/images/logo-colored.png"></img></Link>
+          
         </div>
         <div className="div-content__welcomeback">
           <h1>Welcome Back</h1>

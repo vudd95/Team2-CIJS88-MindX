@@ -171,7 +171,44 @@ const Home = ({ cart }) => {
             </div>
           </div>
         </div>
-        <div className="category-items">
+        <div className="recommended-items">
+          <h5>Recommended items</h5>
+          {recommendProducts2.length > 0 && (
+            <div className="recommended-list-items">
+              {recommendProducts2.map((recommendProduct2) => (
+                <div
+                  className="recommended-list-item"
+                  key={recommendProduct2.id}
+                  onClick={() => handleViewProduct(recommendProduct2.id)}
+                >
+                  <img src={recommendProduct2.image}></img>
+                  <div className="recommended-list-item-price">
+                    <span>${recommendProduct2.price}</span>
+                    <p>{recommendProduct2.title}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+          {recommendProducts1.length > 0 && (
+            <div className="recommended-list-items">
+              {recommendProducts1.map((recommendProduct1) => (
+                <div
+                  className="recommended-list-item"
+                  key={recommendProduct1.id}
+                  onClick={() => handleViewProduct(recommendProduct1.id)}
+                >
+                  <img src={recommendProduct1.image}></img>
+                  <div className="recommended-list-item-price">
+                    <span>${recommendProduct1.price}</span>
+                    <p>{recommendProduct1.title}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+        {/* <div className="category-items">
           <div className="category-items-name">
             <h4>Home and outdoor</h4>
             <button>Source now</button>
@@ -230,7 +267,7 @@ const Home = ({ cart }) => {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
 
         <div className="category-items">
           <div className="category-items-name">
@@ -311,7 +348,7 @@ const Home = ({ cart }) => {
             <button>Send inquiry</button>
           </div>
         </div>
-        <div className="recommended-items">
+        {/* <div className="recommended-items">
           <h5>Recommended items</h5>
           {recommendProducts2.length > 0 && (
             <div className="recommended-list-items">
@@ -347,7 +384,7 @@ const Home = ({ cart }) => {
               ))}
             </div>
           )}
-        </div>
+        </div> */}
         <div className="subscribe-home">
           <Subscribe></Subscribe>
         </div>

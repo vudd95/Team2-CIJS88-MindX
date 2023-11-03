@@ -10,6 +10,7 @@ import Cart from "./pages/Cart/Cart";
 import ListProducts from "./pages/ListProducts/ListProducts";
 import NotFound from "./components/NotFound";
 import ProductDetails1 from "./pages/ProductDetails/ProductDetails1";
+import Category from "./pages/Category/Category";
 
 
 
@@ -93,7 +94,7 @@ const App = () => {
       >
       </Route>
       <Route path="/products/:productId" element={<ProductDetails1 addToCart={addToCart} cart={cart} />}></Route>
-
+      <Route path="/category" element={<Category></Category>}></Route>
       <Route path="*" element={<NotFound></NotFound>} />
     </Routes>
   );
