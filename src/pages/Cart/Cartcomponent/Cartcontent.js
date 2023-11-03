@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Checkout from "./Checkout";
 import { Button, Input, Select } from "@chakra-ui/react";
 import Swal from "sweetalert2";
+import Footer from "../../../components/Footer/Footer";
 
 function Cartcontent({
   cart,
@@ -49,7 +50,7 @@ function Cartcontent({
   };
   return (
     <div className="cart-content">
-      <h2>My cart ({cart.length})</h2>
+      <h2 style={{fontSize: "25px", fontWeight: "700"}}>My cart ({cart.length})</h2>
       <div className="Cart-container">
         {cart.length === 0 ? (
           <div className="cart-empty">
@@ -57,10 +58,10 @@ function Cartcontent({
               src="https://m.media-amazon.com/images/G/01/cart/empty/kettle-desaturated._CB445243794_.svg"
               style={{ width: "500px", height: "300px" }}
             />
-            <div>
-              <p>Your Brand Cart is empty </p>
+            <div style={{marginLeft:"50px"}}>
+              <p style={{marginBottom:"20px"}}>Your Brand Cart is empty </p>
               <Link to="/products">
-                <Button colorScheme="teal" size="lg">
+                <Button colorScheme="teal" size="lg" style={{width:"150px", height:"40px"}}>
                   Back to Shop
                 </Button>
               </Link>
@@ -121,10 +122,11 @@ function Cartcontent({
       <h2 style={{ fontSize: "20px", fontWeight: "600", margin: "20px" }}>
         Shipment Details
       </h2>
-      <div className="product-related">
+      <div className="product-related" style={{paddingTop: "15px", paddingLeft: "20px"}}>
         <div>
           <label htmlFor="name">Full name:</label>
           <Input
+          style={{height: "35px", fontSize: "14px"}}
             name="name"
             value={formData.name}
             required
@@ -133,7 +135,8 @@ function Cartcontent({
         </div>
         <div>
           <label htmlFor="phoneNumber">Phone number:</label>
-          <Input value={formData.phoneNumber} 
+          <Input value={formData.phoneNumber}
+          style={{height: "35px", fontSize: "14px"}} 
           onChange={handleInputChange} 
           name="phoneNumber"
           required 
@@ -141,11 +144,12 @@ function Cartcontent({
         </div>
         <div>
           <label htmlFor="address">Address:</label>
-          <Input value={formData.address} required onChange={handleInputChange} name="address"></Input>
+          <Input value={formData.address} required onChange={handleInputChange} name="address" style={{height: "35px", fontSize: "14px"}}></Input>
         </div>
         <div>
           <label htmlFor="paymentMethod">Payment Method:</label>
           <Select
+          style={{height: "35px", fontSize: "14px"}}
             placeholder="Select option"
             size="lg"
             value={formData.paymentMethod}
@@ -160,7 +164,7 @@ function Cartcontent({
         </div>
         <div>
           <label htmlFor="accountNumber">Account Number:</label>
-          <Input name="accountNumber" value={formData.accountNumber}onChange={handleInputChange} name="accountNumber" />
+          <Input name="accountNumber" value={formData.accountNumber}onChange={handleInputChange} name="accountNumber" style={{height: "35px", fontSize: "14px"}}/>
         </div>
       </div>
       </div>)}
