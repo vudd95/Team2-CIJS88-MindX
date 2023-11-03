@@ -27,7 +27,7 @@ const Login = () => {
         }      
       }
       if(isMatch == false) alert("Wrong email or password")
-      console.log(userData)
+      // console.log(userData)
 
       // const datafromLocal = JSON.parse(localStorage.getItem('userInfo'))
       

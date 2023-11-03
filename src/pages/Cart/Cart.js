@@ -17,9 +17,11 @@ const Cart = ({
 }) => {
   // const { cart } = useCart();
   return (
-    <div>
-      <Cartheader cart={cart} />
-      <Cartcontent
+
+    <>
+    <Cartheader cart={cart} />
+    <div className="cart__content">
+    <Cartcontent
         cart={cart}
         setCart={setCart}
         totalPrice={totalPrice}
@@ -29,8 +31,10 @@ const Cart = ({
         removeProduct={removeProduct}
         updateTotalPrice={updateTotalPrice}
       />
-      {/* <Footer></Footer> */}
     </div>
+    
+    </>
+
 
   );
 };

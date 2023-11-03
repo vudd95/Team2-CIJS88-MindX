@@ -406,3 +406,39 @@ body {
   background-color: #ffffff;
   margin-top: 0;
 }
+
+.category-and-banner__right-user {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-top: 1rem;
+  padding-left: 1.5rem;
+  gap: 1rem;
+}
+
+.category-and-banner__right-user p {
+  font-size: 1.4rem;
+  font-weight: 500;
+  text-transform: lowercase;
+}
+
+.category-and-banner__right-user button {
+  width: 17rem;
+  background-color: #4e91f7;
+  height: 4rem;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 600;
+  border-radius: 5px;
+}
+
+.category-and-banner__right-user button:hover {
+  cursor: pointer;
+  background-color: #2c7cf1;
+}
+
+.signIn__signUp {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}

@@ -8,13 +8,15 @@ import { Link, useNavigate } from "react-router-dom";
 const Home = ({ cart }) => {
   //load thong tin dang nhap tu local storage
   const datafromLocal = JSON.parse(localStorage.getItem("userInfo"));
+  console.log("datafromlocal: ", datafromLocal);
 
   //load thong tin categroy
 
   const [categories, setCategories] = useState([]);
   const [products, setProducts] = useState([]);
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  let isLogin = false;
 
   const fetchCategories = () => {
     fetch("https://fakestoreapi.com/products/categories")
@@ -26,6 +28,16 @@ const Home = ({ cart }) => {
       });
   };
 
+  const handleCheckLogin = () => {
+    if (datafromLocal != null) return (isLogin = true);
+  };
+
+  const handleSignOut = () =>{
+    localStorage.clear()
+    navigate('/login')
+  }
+
+  console.log("handleCheckLogin: ", handleCheckLogin());
   //load thong tin san pham
   const fetchProducts = () => {
     fetch("https://fakestoreapi.com/products")
@@ -45,15 +57,17 @@ const Home = ({ cart }) => {
     fetchProducts();
   }, []);
 
-  const handleViewProduct = (productID) =>{
-    navigate(`/products/${productID}`)
-  }
+  const handleViewProduct = (productID) => {
+    navigate(`/products/${productID}`);
+  };
 
   const recommendProducts1 = products.filter((item) => item.rating.rate > 4.5);
-  console.log("recommendProduct", recommendProducts1);
-  const recommendProducts2 = products.filter(item => item.rating.rate >2.8 && item.rating.rate < 3.6) 
+  // console.log("recommendProduct", recommendProducts1);
+  const recommendProducts2 = products.filter(
+    (item) => item.rating.rate > 2.8 && item.rating.rate < 3.6
+  );
 
-  console.log("Recommend 2: ", recommendProducts2)
+  // console.log("Recommend 2: ", recommendProducts2)
   return (
     <>
       <div className="home">
@@ -91,7 +105,16 @@ const Home = ({ cart }) => {
           <div className="category-and-banner__center"></div>
           <div className="category-and-banner__right">
             <div className="category-and-banner__right-user">
-              {/* {datafromLocal.email} */}
+              {isLogin ? <p>{datafromLocal.email}</p> : <p></p>}
+
+              {isLogin ? (
+                <button onClick={()=>handleSignOut()}>Sign out</button>
+              ) : (
+                <div className="signIn__signUp">
+                  <button onClick={() => navigate("/login")}>Sign in</button>
+                  <button onClick={() => navigate("/signup")}>Sign up</button>
+                </div>
+              )}
             </div>
             <div className="category-and-banner__right-offer1"></div>
             <div className="category-and-banner__right-offer2"></div>
@@ -293,7 +316,11 @@ const Home = ({ cart }) => {
           {recommendProducts2.length > 0 && (
             <div className="recommended-list-items">
               {recommendProducts2.map((recommendProduct2) => (
-                <div className="recommended-list-item" key={recommendProduct2.id} onClick={() => handleViewProduct(recommendProduct2.id)}>
+                <div
+                  className="recommended-list-item"
+                  key={recommendProduct2.id}
+                  onClick={() => handleViewProduct(recommendProduct2.id)}
+                >
                   <img src={recommendProduct2.image}></img>
                   <div className="recommended-list-item-price">
                     <span>${recommendProduct2.price}</span>
@@ -304,23 +331,22 @@ const Home = ({ cart }) => {
             </div>
           )}
           {recommendProducts1.length > 0 && (
-            
             <div className="recommended-list-items">
               {recommendProducts1.map((recommendProduct1) => (
-                
-                <div className="recommended-list-item" key={recommendProduct1.id} onClick={() => handleViewProduct(recommendProduct1.id)}>
+                <div
+                  className="recommended-list-item"
+                  key={recommendProduct1.id}
+                  onClick={() => handleViewProduct(recommendProduct1.id)}
+                >
                   <img src={recommendProduct1.image}></img>
                   <div className="recommended-list-item-price">
                     <span>${recommendProduct1.price}</span>
                     <p>{recommendProduct1.title}</p>
                   </div>
                 </div>
-                
-                
               ))}
             </div>
-            
-                      )}
+          )}
         </div>
         <div className="subscribe-home">
           <Subscribe></Subscribe>
